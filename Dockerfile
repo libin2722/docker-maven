@@ -14,11 +14,7 @@ RUN curl -o $MAVEN_NAME-bin.tar.gz http://mirrors.cnnic.cn/apache/maven/maven-3/
 
 RUN tar -zxf $MAVEN_NAME-bin.tar.gz -C /opt
 
-RUN echo 'export PATH=$MAVEN_HOME/bin:$PATH' > /etc/profile && \
-    echo 'export CLASSPATH=$MAVEN_HOME/lib:$CLASSPATH' > /etc/profile
-
-RUN source /etc/profile
-
+RUN ln -s $MAVEN_HOME/bin/mvn /usr/bin/mvn
 
 
 
